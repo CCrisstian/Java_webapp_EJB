@@ -1,0 +1,2 @@
+<h1 align="center">Enterprise JavaBeans (EJB)</h1>
+<p>Enterprise JavaBeans (EJB) es una tecnología del estándar Jakarta EE (antes Java EE) diseñada para simplificar el desarrollo de aplicaciones empresariales distribuidas y escalables. EJB proporciona un modelo robusto para el desarrollo de aplicaciones que requieren características avanzadas, como transacciones, seguridad y concurrencia, sin que el desarrollador tenga que manejar todos los detalles complejos a nivel de código.</p>
