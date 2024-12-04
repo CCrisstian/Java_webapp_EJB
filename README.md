@@ -1,13 +1,21 @@
 <h1 align="center">Enterprise JavaBeans (EJB)</h1>
 <p><b>Enterprise JavaBeans (EJB)</b> es una tecnología del estándar <b>Jakarta EE (antes Java EE)</b> diseñada para simplificar el desarrollo de aplicaciones empresariales distribuidas y escalables. EJB proporciona un modelo robusto para el desarrollo de aplicaciones que requieren características avanzadas, como transacciones, seguridad y concurrencia, sin que el desarrollador tenga que manejar todos los detalles complejos a nivel de código.</p>
 
-<h3>¿Para qué sirve EJB?</h3>
+<h3>Características</h3>
 
-- <b>Desarrollar lógica empresarial</b>: Permite implementar y encapsular la lógica empresarial en clases Java conocidas como "beans". Estos beans pueden realizar operaciones importantes como cálculos, validaciones y la administración de datos en la aplicación.
-- <b>Gestionar transacciones</b>: EJB facilita la administración de transacciones, asegurando que un conjunto de operaciones se ejecute de forma completa o se deshaga en caso de errores (integridad transaccional). Esto es crucial en aplicaciones que interactúan con bases de datos o sistemas externos.
-- <b>Controlar la seguridad</b>: Ofrece un modelo de seguridad robusto que permite definir permisos de acceso a métodos y recursos, de acuerdo con los roles de usuario de la aplicación.
-- <b>Escalabilidad y concurrencia</b>: Los EJB están diseñados para aplicaciones de gran escala que necesitan manejar múltiples usuarios y procesos al mismo tiempo, distribuyéndose en servidores de aplicaciones para equilibrar la carga.
-- <b>Integración con sistemas externos</b>: Permite la interacción con otros sistemas y servicios, incluso si están en servidores o plataformas distintas, lo que facilita la integración en arquitecturas de aplicaciones distribuidas.
+- <b>Transacciones</b>: `EJB` administra transacciones automáticamente mediante la API de `Java Transaction` (`JTA`). Permite garantizar la integridad de los datos mediante reglas como todo o nada (commit o rollback), sin que el desarrollador implemente lógica compleja.
+
+- <b>Comunicación Remota</b>: `EJB` permite que los `beans` sean llamados de manera remota a través de la red usando protocolos como RMI o HTTP, facilitando la creación de aplicaciones distribuidas. Esto es ideal para sistemas con múltiples nodos.
+
+- <b>Concurrencia</b>: `EJB` gestiona automáticamente el acceso simultáneo a los `beans`, asegurando que múltiples clientes puedan interactuar con ellos sin causar conflictos. Esto evita problemas como el acceso inconsistente a los datos.
+
+- <b>JNDI (Java Naming and Directory Interface)</b>: Es el mecanismo que permite localizar recursos y `EJBs` en un servidor de aplicaciones. Proporciona una referencia uniforme para acceder a `beans` o servicios (por ejemplo, bases de datos, colas JMS).
+
+- <b>Seguridad</b>: `EJB` implementa un modelo de seguridad basado en roles. Permite restringir el acceso a métodos según roles definidos, utilizando anotaciones como @RolesAllowed o configuraciones declarativas en el servidor.
+
+- <b>Integración con JPA (Java Persistence API)</b>: `EJB` se integra de forma nativa con `JPA` para gestionar persistencia de datos. Esto facilita operaciones CRUD en bases de datos mediante entidades y evita el uso de `SQL` explícito.
+
+- <b>Integración con CDI (Contexts and Dependency Injection)</b>: `CDI` permite inyección de dependencias y control del ciclo de vida de los `beans` en `EJB`. Esto hace que los `EJB` se integren fácilmente en aplicaciones con un manejo más flexible de componentes.
 
 <h3>Tipos de EJB</h3>
 
