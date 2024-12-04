@@ -19,12 +19,20 @@
 
 <h3>Tipos de EJB</h3>
 
-- <b>Session Beans (Beans de sesión)</b>: Realizan tareas específicas y representan el "estado" temporal de una interacción con un cliente.
-  - <b>Stateless Session Beans</b>: No retienen estado entre llamadas del cliente. Son ideales para operaciones independientes y de corta duración.
-  - <b>Stateful Session Beans</b>: Mantienen el estado del cliente a lo largo de una sesión específica. Son útiles en casos donde el contexto del cliente es importante.
+- Sin Estado (`@Stateless`): Un `EJB` `@Stateless` no guarda información específica del cliente entre llamadas. Es ideal para operaciones independientes que no requieren contexto previo.
+  - No mantienen estado entre las interacciones.
+  - Se reutilizan entre múltiples clientes, mejorando el rendimiento.
+  - Perfectos para servicios que ejecutan lógica repetitiva, como cálculos o acceso a bases de datos.
 
-- <b>Entity Beans</b>: Representaban datos persistentes que se almacenan en una base de datos. Con la llegada de JPA (Java Persistence API), los Entity Beans quedaron obsoletos y fueron reemplazados por la JPA.
-- <b>Message-Driven Beans (MDB)</b>: Responden a mensajes asincrónicos, especialmente en aplicaciones que usan sistemas de mensajería (como JMS). Son útiles para la integración en arquitecturas orientadas a eventos.
+- Con Estado (`@Stateful`): Un `EJB` `@Stateful` guarda información del cliente durante la sesión, manteniendo su estado entre múltiples llamadas.
+  - Mantienen el estado mientras dure la interacción con el cliente.
+  - Útiles para casos donde se necesita rastrear la actividad del cliente (por ejemplo, un carrito de compras).
+  - Se destruyen cuando el cliente finaliza la sesión.
+
+- Única instancia (`@Singleton`): Un `EJB` `@Singleton` tiene una única instancia en toda la aplicación, compartida por todos los clientes. Es ideal para administrar recursos compartidos.
+  - Se inicializa una vez y se utiliza durante todo el ciclo de vida de la aplicación.
+  - Útil para manejar configuraciones globales, caché, o controladores centralizados.
+  - Puede ser <b>thread-safe</b> con anotaciones como `@Lock`.
 
 <h3>Ventajas de usar EJB</h3>
 
